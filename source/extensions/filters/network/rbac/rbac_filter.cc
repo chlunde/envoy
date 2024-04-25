@@ -116,6 +116,8 @@ Network::FilterStatus RoleBasedAccessControlFilter::onData(Buffer::Instance&, bo
   if (engine_result_ == Allow) {
     return Network::FilterStatus::Continue;
   } else if (engine_result_ == Deny) {
+    callbacks_->connection().streamInfo().setResponseFlag(
+        StreamInfo::CoreResponseFlag::LocalRBACDeny);
     callbacks_->connection().streamInfo().setConnectionTerminationDetails(
         Filters::Common::RBAC::responseDetail(log_policy_id));
     callbacks_->connection().close(Network::ConnectionCloseType::NoFlush, "rbac_deny_close");

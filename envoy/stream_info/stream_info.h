@@ -63,6 +63,8 @@ enum CoreResponseFlag : uint16_t {
   RateLimited,
   // Request was unauthorized by external authorization service.
   UnauthorizedExternalService,
+  // Request was denied by RBAC on the this Envoy.
+  LocalRBACDeny,
   // Unable to call Ratelimit service.
   RateLimitServiceError,
   // If the stream was reset due to a downstream connection termination.

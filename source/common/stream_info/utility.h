@@ -90,6 +90,7 @@ public:
   constexpr static absl::string_view FAULT_INJECTED = "FI";
   constexpr static absl::string_view RATE_LIMITED = "RL";
   constexpr static absl::string_view UNAUTHORIZED_EXTERNAL_SERVICE = "UAEX";
+  constexpr static absl::string_view LOCAL_RBAC_DENY = "LD";
   constexpr static absl::string_view RATELIMIT_SERVICE_ERROR = "RLSE";
   constexpr static absl::string_view STREAM_IDLE_TIMEOUT = "SI";
   constexpr static absl::string_view INVALID_ENVOY_REQUEST_HEADERS = "IH";
@@ -124,6 +125,7 @@ public:
   constexpr static absl::string_view RATE_LIMITED_LONG = "RateLimited";
   constexpr static absl::string_view UNAUTHORIZED_EXTERNAL_SERVICE_LONG =
       "UnauthorizedExternalService";
+  constexpr static absl::string_view LOCAL_RBAC_DENY_LONG = "LocalRBACDeny";
   constexpr static absl::string_view RATELIMIT_SERVICE_ERROR_LONG = "RateLimitServiceError";
   constexpr static absl::string_view STREAM_IDLE_TIMEOUT_LONG = "StreamIdleTimeout";
   constexpr static absl::string_view INVALID_ENVOY_REQUEST_HEADERS_LONG =
@@ -162,6 +164,7 @@ public:
       FlagStrings{RATE_LIMITED, RATE_LIMITED_LONG, CoreResponseFlag::RateLimited},
       FlagStrings{UNAUTHORIZED_EXTERNAL_SERVICE, UNAUTHORIZED_EXTERNAL_SERVICE_LONG,
                   CoreResponseFlag::UnauthorizedExternalService},
+      FlagStrings{LOCAL_RBAC_DENY, LOCAL_RBAC_DENY_LONG, CoreResponseFlag::LocalRBACDeny},
       FlagStrings{RATELIMIT_SERVICE_ERROR, RATELIMIT_SERVICE_ERROR_LONG,
                   CoreResponseFlag::RateLimitServiceError},
       FlagStrings{DOWNSTREAM_CONNECTION_TERMINATION, DOWNSTREAM_CONNECTION_TERMINATION_LONG,
