@@ -41,7 +41,7 @@ void Utility::responseFlagsToAccessLogResponseFlags(
     envoy::data::accesslog::v3::AccessLogCommon& common_access_log,
     const StreamInfo::StreamInfo& stream_info) {
 
-  static_assert(StreamInfo::CoreResponseFlag::LastFlag == 28,
+  static_assert(StreamInfo::CoreResponseFlag::LastFlag == 29,
                 "A flag has been added. Fix this code.");
 
   if (stream_info.hasResponseFlag(StreamInfo::CoreResponseFlag::FailedLocalHealthCheck)) {
@@ -58,6 +58,10 @@ void Utility::responseFlagsToAccessLogResponseFlags(
 
   if (stream_info.hasResponseFlag(StreamInfo::CoreResponseFlag::LocalReset)) {
     common_access_log.mutable_response_flags()->set_local_reset(true);
+  }
+
+  if (stream_info.hasResponseFlag(StreamInfo::CoreResponseFlag::LocalRBACDeny)) {
+    common_access_log.mutable_response_flags()->set_local_rbac_deny(true);
   }
 
   if (stream_info.hasResponseFlag(StreamInfo::CoreResponseFlag::UpstreamRemoteReset)) {

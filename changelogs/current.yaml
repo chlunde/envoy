@@ -13,6 +13,9 @@ minor_behavior_changes:
 - area: tracers
   change: |
     Set status code for OpenTelemetry tracers (previously unset).
+- area: http
+  change: |
+    Added LocalRBACDeny to CoreResponseFlag, and it is set when a request is denied by local RBAC.
 
 bug_fixes:
 # *Changes expected to improve the state of the world and are unlikely to have negative effects*
